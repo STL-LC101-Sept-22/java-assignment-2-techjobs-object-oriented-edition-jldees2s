@@ -23,6 +23,7 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields(){
         Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
         assertTrue(job instanceof Job);
         assertEquals(job.getName(),"Product tester");
 
@@ -75,7 +76,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job job3 = new Job("Ice cream tester", new Employer(""), new Location("Home"), new PositionType("UX"), new CoreCompetency("Tasting ability"));
+        Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String actual = job3.toString();
         String expected = "\nID: "+job3.getId()+"\n" +
                 "Name: "+ job3.getName()+"\n" +
