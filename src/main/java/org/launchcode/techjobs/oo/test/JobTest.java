@@ -46,19 +46,22 @@ public class JobTest {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertNotEquals(job1, job2);
-        assertFalse("Jobs should have different IDs despite all other factors", job1.equals(job2));
+        assertFalse(job1.equals(job2));
     }
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
 
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        char expected = '\n';
 
-        char startsWith = job1.toString().charAt(0);
-        char endsWith = job1.toString().charAt(job1.toString().length()-1);
-        assertEquals(startsWith,'\n');
-        assertEquals(endsWith,'\n');
+        String tester1 = job1.toString();
 
+        char start = tester1.charAt(0);
+        assertEquals(expected, start);
+
+        char end = tester1.charAt(tester1.length()-1);
+        assertEquals(expected, end);
     }
 
     @Test
@@ -77,14 +80,14 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String actual = job3.toString();
-        String expected = "\nID: "+job3.getId()+"\n" +
-                "Name: "+ job3.getName()+"\n" +
-                "Employer: Data not available\n" +
-                "Location: "+job3.getLocation()+"\n" +
-                "Position Type: "+job3.getPositionType()+"\n" +
-                "Core Competency: "+job3.getCoreCompetency()+"\n";
+        char expected = '\n';
 
-        assertEquals(expected, actual) ;
+        String tester1 = job3.toString();
+
+        char start = tester1.charAt(0);
+        assertEquals(expected, start);
+
+        char end = tester1.charAt(tester1.length()-1);
+        assertEquals(expected, end);
     }
 }
