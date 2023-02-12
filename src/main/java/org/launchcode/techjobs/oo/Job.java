@@ -95,26 +95,46 @@ public class Job {
 
     @Override
     public String toString() {
-        String emptyString = "";
-        if (name.equals("")) {
-            name = "Data is not available";
-        }
-        if (employer.getValue().equals("") || employer.getValue() == null) {
-            employer.setValue("Data is not available");
-        }
-        if (location.getValue().equals("") || location.getValue() == null) {
-            location.setValue("Data is not available");
-        }
-        if (positionType.getValue().equals("") || positionType.getValue() == null) {
-            positionType.setValue("Data is not available");{
-            }
-            if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
-                coreCompetency.setValue("Data is not available");
-            }
-        }
-        emptyString = String.format("\nID: %d\n" +  "Name: %s\n" + "Employer: %s\n" + "Location: %s\n" + "Position type: %s\n" + "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
+        String errorMessage = "Data not available";
+        String printName;
+        String printLocation;
+        String printEmployer;
+        String printPositionType;
+        String printCoreCompetency;
 
-        return emptyString;
+        if (getName() == null || getName() == "") {
+            printName = errorMessage;
+        } else {
+            printName = getName();
+        }
+        if (getLocation().getValue() == null || getLocation().getValue() == "") {
+            printLocation = errorMessage;
+        } else {
+            printLocation = getLocation().getValue();
+        }
+        if (getEmployer().getValue() == null || getEmployer().getValue() == "") {
+            printEmployer = errorMessage;
+        } else {
+            printEmployer = getEmployer().getValue();
+        }
+        if (getPositionType().getValue() == null || getPositionType().getValue() == "") {
+            printPositionType = errorMessage;
+        } else {
+            printPositionType = getPositionType().getValue();
+        }
+        if (getCoreCompetency().getValue() == null || getCoreCompetency().getValue() == "") {
+            printCoreCompetency = errorMessage;
+        } else {
+            printCoreCompetency = getCoreCompetency().getValue();
+        }
+
+        String output = "\nID: " + getId() + "\n" +
+                "Name: " + printName + "\n" +
+                "Employer: " + printEmployer + "\n" +
+                "Location: " + printLocation + "\n" +
+                "Position Type: " + printPositionType + "\n" +
+                "Core Competency: " + printCoreCompetency + "\n";
+        return output;
     }
 
 }
