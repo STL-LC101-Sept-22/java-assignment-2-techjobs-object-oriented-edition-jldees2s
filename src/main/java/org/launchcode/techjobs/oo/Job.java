@@ -102,27 +102,27 @@ public class Job {
         String printPositionType;
         String printCoreCompetency;
 
-        if (getName() == null || getName() == "") {
+        if (name == null || name.equals("")) {
             printName = errorMessage;
         } else {
-            printName = getName();
+            printName = name;
         }
-        if (getLocation().getValue() == null || getLocation().getValue() == "") {
+        if (location == null || location.equals("")) {
             printLocation = errorMessage;
         } else {
             printLocation = getLocation().getValue();
         }
-        if (getEmployer().getValue() == null || getEmployer().getValue() == "") {
+        if (employer == null || employer.equals("")) {
             printEmployer = errorMessage;
         } else {
             printEmployer = getEmployer().getValue();
         }
-        if (getPositionType().getValue() == null || getPositionType().getValue() == "") {
+        if (positionType == null || positionType.equals("")) {
             printPositionType = errorMessage;
         } else {
             printPositionType = getPositionType().getValue();
         }
-        if (getCoreCompetency().getValue() == null || getCoreCompetency().getValue() == "") {
+        if (coreCompetency == null || coreCompetency.equals("")) {
             printCoreCompetency = errorMessage;
         } else {
             printCoreCompetency = getCoreCompetency().getValue();
